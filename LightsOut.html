@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightsOut</title>
+    <style>
+        body {
+            background: grey;
+        }
+
+        table{
+            margin: 20px auto;
+            
+        }
+
+        table td{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+        table td.encendido{
+            box-shadow:  0px 0px 30px 5px #00ffff;
+            background: #1fe4e4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lights Out!!</h1>
+
+    <table>
+     <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+    </table>
+ 
+    <script>
+        const tabla = document.querySelector("table");
+
+        tabla.addEventListener("click", function(e){
+            if (e.target.tagName == "TD"){
+                let td = e.target;
+                let tr = td.parentElement;
+
+                let col = td.cellIndex
+                let row = tr.rowIndex
+                presionar(row,col)
+                
+            }
+        });
+
+        function presionar(row,col){
+
+            tabla.rows[row].cells[col].classList.toggle("encendido")
+            if(row >0){
+                    tabla.rows[row-1].cells[col].classList.toggle("encendido")
+                    
+                }
+                if(row < 4){
+                    tabla.rows[row+1].cells[col].classList.toggle("encendido")
+                    
+                }
+                if(col >0){
+                    tabla.rows[row].cells[col-1].classList.toggle("encendido")
+                    
+                }
+                if(col <4){
+                    tabla.rows[row].cells[col+1].classList.toggle("encendido")
+                    
+                }
+        }
+    </script>
+</body>
+</html>
