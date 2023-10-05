@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Leccion 2. DOM</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+  <h1>Leccion 2. DOM (Document Object Model)</h1>
+  <p>Hola a todes</p>  
+
+  <input id="btn1" type="button" value="Presioname"/>
+  <script>
+    /*
+     querySelector - Busca en base a un selector css regresa el primero
+     querySelectorAll - regresa todos, regresa un arreglo con todos los elementos
+     getElementById - Busca en base al id
+     getElementByTagName - Busca en base al nombre de la etiqueta, regresa un arreglo
+                           con todos los que tenagan el mismo nombre de la etiqueta
+     getElementsByClassName - Busca en base a la clase
+     getElementsByName - Busca en base a la propiedad nombre
+    */    
+
+    document.getElementById("btn1").addEventListener("click", cambiarTexto);
+
+    function cambiarTexto(){
+      let p = document.querySelector("p");
+      console.log(p);
+      p.textContent="Adios mensos";
+      p.style.color= "red";
+    }
+    // let p = document.querySelector("p");
+    // console.log(p);
+    // p.textContent="Adios mensos";
+    // p.style.color= "red";
+  </script>
+</body>
+</html>

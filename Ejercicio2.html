@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Angulos</title>
+    <style>
+        table {
+            margin: 20px auto;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border: 3px solid purple;
+        }
+
+        
+        table td {
+          width: 99px;
+          height: 99px;
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Ejercicio 2, Tabla-Angulos</h1>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <svg width="99" height="99" class="angulo" style="display:none">
+        <polygon stroke="black" fill="green" points="99,0 30,99 0,69 26,80" ></polygon>
+    </svg>
+
+    <script>
+        const tabla = document.querySelector("table");
+        const angulo = document.querySelector(".angulo"); //primer angulo que esta escondido y voy a clonar
+        tabla.addEventListener("click", function(e){
+            if(e.target.tagName == "TD"){
+                // let s = e.target.parentElement.querySelector("td[style]");
+                // if(s){
+                //     s.removeAttribute("style");
+                // }
+
+                // e.target.style.backgroundColor = "pink";
+                let clon = e.target.parentElement.querySelector(".angulo");
+                if (clon ==null){
+                clon = angulo.cloneNode(true);
+                clon.style.display = null;
+                }
+                e.target.append(clon);
+            }
+        });
+    </script>
+</body>
+</html>

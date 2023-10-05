@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 6</title>
+    <style>
+        table{
+            margin: 10px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        table td, table th{
+            padding: 3px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leccion 6. Tablas en DOM</h1>
+
+    <form>
+        <label>Nombre: </label><input type="text" required name="nombre"/> <br/>
+        <label>Ciudad: </label><input type="text" required name="ciudad"/> <br/>
+        <input type="button" value="Agregar"/>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    
+    <script>
+        const tabla = document.querySelector("tbody");
+        const form = document.querySelector("form");
+
+        form.querySelector("input[type=button]").addEventListener("click", () =>{
+            if(form.checkValidity()){
+                let nombre = form.elements.nombre.value;
+                let ciudad = form.elements.ciudad.value;
+
+                // let row = document.createElement("TR");
+                // let td1 = document.createElement("TD");
+                // td1.textContent=nombre;
+                // let td2 = document.createElement("TD");
+                // td2.textContent=ciudad;
+                // row.append(td1,td2);
+                // tabla.append(row);
+
+                let row = tabla.insertRow();
+                row.insertCell().textContent = nombre;
+                row.insertCell().textContent = ciudad;
+                
+            } else{
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>

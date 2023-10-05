@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+    <style>
+        polygon{
+            fill:yellow;
+            transition: 1s all;
+        }
+
+        polygon:hover{
+            fill:red;
+        }
+        text{
+            transform: translate(100px,100px);
+        }
+    </style>
+</head>
+<body>
+    <h1>SVG - Scalable Vector Graphics</h1>
+
+    <svg width="300" height="300">
+        <circle r="150" fill="red" cx="150" cy="150"></circle>
+        <text color="black" x="100" y="150" Font-size="20">Hola owo</text>
+    </svg>
+
+    <script>
+        document.querySelector("circle").addEventListener("click", function(){
+            this.style.fill = "pink";
+        });
+    </script>
+
+    <svg whidth="300" height="300">
+        <polygon points="150,0 0,300 300,300" fill="red"></polygon>
+    </svg>
+    <svg whidth="300" height="300">
+        <polygon points="0,0 300,0 150,300" fill="red"></polygon>
+    </svg>
+    <svg whidth="300" height="300">
+        <polygon points="0,150 300,300 300,0" fill="red"></polygon>
+    </svg>
+</body>
+</html>

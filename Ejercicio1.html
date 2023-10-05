@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h1>Ejercicio 1</h1>
+
+    <form>
+        <input type="button" value="1"></input >
+        <input type="button" value="2"></input >
+        <input type="button" value="3"></input > <br/>
+        <input type="button" value="4"></input >
+        <input type="button" value="5"></input >
+        <input type="button" value="6"></input ><br/>
+        <input type="button" value="7"></input >
+        <input type="button" value="8"></input >
+        <input type="button" value="9"></input >
+        <br/>
+        <label>Total: 0</label>
+    </form>
+
+    <script>
+        const form = document.querySelector("form");
+        const label = form.querySelector("label");
+        var o = 0;
+        form.addEventListener("click", function(e){
+            if(e.target.tagName == "INPUT"){
+                if(e.target.style.backgroundColor == "red"){
+                    e.target.style.backgroundColor = null;
+                    o -= parseInt(e.target.value);
+                }else {
+                    o += parseInt(e.target.value);
+                    e.target.style.backgroundColor = "red";
+                }
+                label.textContent="Total: " + o;
+            }
+        });
+    </script>
+</body>
+</html>

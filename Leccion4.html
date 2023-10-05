@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 4</title>
+    <style>
+        form {
+            display: flex;
+        }
+        select {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leccion 4. Mover objetos en DOM</h1>
+
+    <form>
+        <select size="10">
+            <option>Elemento 1</option>
+            <option>Elemento 2</option>
+            <option>Elemento 3</option>
+            <option>Elemento 4</option>
+            <option>Elemento 5</option>
+        </select>
+        <div>
+            <input type="button" value=">>"/> <br />
+            <input type="button" value="<<"/>
+        </div>
+        
+        <select size="10">
+
+        </select>
+    </form>
+    <script>
+        const selects = document.querySelectorAll("select");
+        const buttons = document.getElementsByTagName("input");
+
+        /*
+        buttons[0].addEventListener("click", function(){
+            if(selects[0].selectedIndex != -1){
+                let optionSeleccionado = selects[0].options[selects[0].selectedIndex];
+                selects[1].append(optionSeleccionado);
+            }
+        });
+
+        buttons[1].addEventListener("click", function(){
+            if(selects[1].selectedIndex != -1){
+                let optionSeleccionado = selects[1].options[selects[1].selectedIndex];
+                selects[0].append(optionSeleccionado);
+            }
+        }); */
+        buttons[0].addEventListener("click", () => intercambiar(selects[0], selects[1]));
+        buttons[1].addEventListener("click", () => intercambiar(selects[1], selects[0]));
+
+        /*function owo(sourceSelect, targetSelect) {
+          const selectedIndex = sourceSelect.selectedIndex;
+          if (selectedIndex !== -1) {
+            const optionSeleccionado = sourceSelect.options[selectedIndex];
+            targetSelect.appendChild(optionSeleccionado);
+          }
+        } */
+
+        function intercambiar(o, d){
+            if(o.selectedIndex != -1){
+                let optionSeleccionado = o.options[o.selectedIndex];
+                d.append(optionSeleccionado);
+            }
+        }
+       
+        
+        /*
+        buttons[0].addEventListener("click", MoverTexto(0));
+        buttons[1].addEventListener("click", MoverTexto(1));
+
+        function MoverTexto(n){
+            if(selects[n].selectedIndex != -1){
+                let optionSeleccionado = selects[n].options[selects[n].selectedIndex];
+                if(n = 0){
+                    selects[1].append(optionSeleccionado);
+                }
+                selects[0].append(optionSeleccionado);
+            }
+        }
+        */
+
+    </script>
+</body>
+</html>

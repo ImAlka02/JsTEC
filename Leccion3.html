@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 3</title>
+</head>
+<body>
+    <h1> leccion 3. Creacion de objetos en DOM</h1>
+    <form>
+        <input type="text" id="txtDescripcion" required /><input type="button" id="btnAgregar" value="Agregar a la lista"/>
+    </form>
+
+    <ol>
+        
+    </ol>
+
+    <script>
+        const descripcion = document.getElementById("txtDescripcion");
+        const lista = document.querySelector("ol");
+
+        document.getElementById("btnAgregar").addEventListener("click", function(){
+            if(descripcion.value){
+                let li = document.createElement("LI");
+                li.textContent= descripcion.value;
+                lista.append(li);
+                descripcion.value= "";
+                descripcion.focus();
+            } else {
+                descripcion.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>

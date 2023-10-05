@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion1</title>
+</head>
+<body>
+    <h1> Leccion 1. Fundamentos de Js</h1>
+    <script>
+        console.log("Hola mundo owo");
+        //alert("Ola mundo 2");
+
+        //variables y tipos de datos
+        //numeric, text, boolean, object, null, undefined
+
+        let x = "juan";
+        let y = 5;
+        let z = x + y;
+
+        var num; //Hoisting
+        {
+            console.log(num)
+            num = 2 === "2";
+            console.log(num);
+        }
+
+        console.log(o);
+
+        // const c = 3;
+        // c = 4;  
+
+        //operadores aritmeticos = +, -,*,/,%,**
+        //logicos: &, |, !, &&, ||
+        //relaciones: <, <=, >, >=, !=, ==, ===, !===
+        // asignacion: =, +=, -=, *=, /=, %=, **=, ++, --
+        //String: +, ${}
+
+        //Operador de nulidad ??
+        
+        
+
+        let v1 = null;
+        let v2 = v1 ?? "hola";
+        //Operador de validacion nula ?
+        console?.log("Hola");
+        //Operador de asignacion nula ??=
+        let arreglo;
+        arreglo ??= 10;
+
+        //convercion text2number
+
+        //parseInt
+        let a = "5.5";
+        let b = 5.5;
+        let c = parseInt(a) + b;//10.5
+
+        let medida = "122.3-45";
+        let d = parseInt(medida);//122
+        //parseFloat
+        let e = parseFloat(medida);//122.3
+        //number
+        let f = Number(medida);//NaN
+
+        //condicionales
+        let cadena;
+        if (cadena){//Si tiene un valor entra
+            console.log(cadena)
+        }
+
+        switch(cadena){
+            case 1: console.log("x"); break;
+            default: console.log("nada"); break;
+        }
+
+        //ciclos
+        while(b > 10){
+
+        }
+
+        do{
+
+        }
+        while (b > 10)
+
+        for(let i = 1; i <10;i++){
+
+        }
+
+        let arreglowo = [1,2,3,4,5];
+
+        for(let n of arreglowo){ //recorre los elementos
+            console.log(n);
+        }
+
+        for(let n in arreglowo){ //REcorre los indices ocupados de una coleccion
+            console.log(n);
+        }
+        
+        let numeros = [];
+        numeros[0] = "Hola";
+        numeros[9] = 23;
+
+        let tamaño = numeros.length;
+        //Fila
+        numeros.push(5); //HAce lo mismo que el shift
+        let siguiente = numeros.pop(); //TE da el numero del final y lo desaparece
+        //COLA
+        numeros.shift(10); //HAce lo mismo que el push
+        siguiente = numeros.unshift(); //TE da el numero del inicio y lo desaparece
+
+        let numeros2 = numeros.splice(0,2);
+    </script>
+</body>
+</html>
