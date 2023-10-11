@@ -70,7 +70,12 @@
     <script>
         const tabla = document.querySelector("table");
 
+        var activo = true;
+
         tabla.addEventListener("click", function(e){
+
+            if(!activo) return;
+
             if (e.target.tagName == "TD"){
                 let td = e.target;
                 let tr = td.parentElement;
@@ -79,6 +84,13 @@
                 let row = tr.rowIndex
                 presionar(row,col)
                 
+
+                let on = tabla.querySelectorAll("td.encendido");
+                if(on.length=0){
+                    activo = false;
+                    alert("Ganaste");
+
+                }
             }
         });
 
@@ -102,6 +114,17 @@
                     
                 }
         }
+
+        function prepararTablero(){
+            let veces = Math.ceil(Math.random() * 20);
+            for(let i = 1;i<=veces;i++){
+                let r = Math.floor(Math.random()*5);
+                let c = Math.floor(Math.random()*5);
+                presionar(r,c);
+            }
+        }
+
+        prepararTablero();
     </script>
 </body>
 </html>
