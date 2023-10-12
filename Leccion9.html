@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 9</title>
+    <style>
+        .toast {
+            display: none;
+            background: #333;
+            color: #FFF;
+            padding: 10px 30px;
+            border-radius: 15px;
+            position: fixed;
+            bottom: 10px;
+            right: 50%;
+            transform: translateX(50%);
+            box-shadow: 2px 2px 5px #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leccion 9. Temporizadores</h1>
+    
+    <p id ="contador">
+        0
+    </p>
+
+    <span class="toast">
+        Im a Toast :D
+    </span>
+    <script>
+    //setTimeout - Ejecuta una funcion en x Tiempo
+    //setInterval - Ejecuta una funcion cada x Tiempo
+    //clearTimeout
+    //clearInterval
+
+        var contador = 0;
+        let p = document.querySelector("#contador");
+        let timer = setInterval(function(){
+            contador++;
+            p.textContent=contador;
+            if(contador == 100){
+                clearInterval(timer);
+                showToast("Se acabo el contador", 3000)
+            }
+        }, 50);
+
+        function showToast(text, duration){
+            let toast = document.querySelector(".toast");
+            toast.textContent = text;
+            toast.style.display= "inline";
+            setTimeout(function() {
+                toast.style.display = "none";
+            }, duration);
+        }
+
+        showToast("Hole a todes", 2000);
+    </script>
+    
+
+</body>
+</html>
