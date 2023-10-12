@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 8</title>
+
+    <style>
+        table{
+            width: 80%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding:5px;
+            border: 1px solid black;
+
+        }
+
+        td:last-of-type{
+            text-align: center;
+            position: relative;
+        }
+
+        nav{
+            
+            width: 200px;
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px gray;
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 1;
+            
+        }
+
+        nav a {
+            color: black;
+            margin:5px;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        td nav{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leccion 8, Menu contextuales</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Num Control
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>201g0268</td>
+                <td>Juan Eduardo Medrano Mendoza</td>
+                <td>&vellip;
+                    
+                </td>
+                
+            </tr>
+            <tr>
+                <td>273g1118</td>
+                <td>Ingrid Valeria Martinez Rodriguez</td>
+                <td>&vellip;</td>
+            </tr>
+            <tr>
+                <td>201g070</td>
+                <td>Carlos Lionel Ibarra Medrano</td>
+                <td>&vellip;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <nav id="menu1">
+        <a href="javascript:">Eliminar</a>
+        <a href="javascript:">Editar</a>
+        <a href="javascript:">Cambiar Contraseña</a>
+    </nav>
+
+    <script>
+        const tabla = document.querySelector("table tbody");
+        const menu1 = document.getElementById("menu1");
+
+        tabla.addEventListener("click", function(e){
+            if(e.target.tagName ==="TD" && e.target.parentElement.lastElementChild == e.target){
+                e.target.append(menu1);
+                e.stopPropagation();
+            }
+        });
+        
+        document.addEventListener("click", function (e){
+            document.body.append(menu1);
+        });
+    </script>
+</body>
+</html>
