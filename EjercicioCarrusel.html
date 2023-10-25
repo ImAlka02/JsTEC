@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel</title>
+    <style>
+        .carrusel {
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 10px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carrusel div{
+            display: flex;
+            transition: all 1s;
+        }
+        .carrusel img {
+            width: 600px;
+            flex: none;
+        }
+
+        .carrusel a {
+            position: absolute;
+            top:50%;
+            left:10px;
+            width: 50px;
+            height: 50px;
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5em;
+            transform: translateY(-50%);
+            opacity: .3;
+            transition: all .1s ease-in;
+        }
+
+        .carrusel a:hover {
+            opacity: 1;
+        }
+
+        .carrusel a:last-of-type {
+            right: 1dvh;
+            left: unset;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 3. Carrusel Imagenes</h1>
+
+    <div class="carrusel">
+        <div>
+            <img src="/Fotos/Foto1.jpeg"/>
+            <img src="/Fotos/Foto2.jpeg"/>
+            <img src="/Fotos/Foto3.jpeg"/>
+            <img src="/Fotos/Foto4.jpeg"/>
+            <img src="/Fotos/Foto5.jpeg"/>
+        </div>
+
+        <a href="javascript:" id="anterior">&lt;</a>
+        <a href="javascript:" id="siguiente">&gt;</a>
+    </div>
+
+    <script>
+       
+        let imgs = document.querySelector(".carrusel div");
+        
+        let clon1 = imgs.firstElementChild.cloneNode(true);
+        let clon2 = imgs.lastElementChild.cloneNode(true);
+        imgs.append(clon1);
+        imgs.insertBefore(clon2, imgs.firstElementChild);
+
+        let totalImg = imgs.children.length;
+        let actual = 2;
+        imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
+
+
+        imgs.addEventListener("transitionend", function(e){
+            if(actual == imgs.children.length){
+                actual =2 ;
+                imgs.style.transition = "none";
+                imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
+
+
+            }
+
+            if(actual == 1){
+                actual =imgs.children.length-1 ;
+                imgs.style.transition = "none";
+                imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
+
+
+            }
+        });
+
+        document.getElementById("siguiente").addEventListener("click", function(){
+            imgs.style.transition = "all 1s"
+            if (actual < totalImg){
+                actual ++;
+                imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
+            }
+        });
+        document.getElementById("anterior").addEventListener("click", function(){
+            imgs.style.transition = "all 1s"
+            if (actual > 1){
+                actual --;
+                imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
+            }
+        });
+    </script>
+
+</body>
+</html>
