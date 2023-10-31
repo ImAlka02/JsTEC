@@ -81,26 +81,30 @@
         let actual = 2;
         imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
 
+        let timer = setInterval(function(){
+            document.getElementById("siguiente").click();
+        }, 2000)
 
         imgs.addEventListener("transitionend", function(e){
             if(actual == imgs.children.length){
                 actual =2 ;
                 imgs.style.transition = "none";
                 imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
-
-
             }
 
             if(actual == 1){
                 actual =imgs.children.length-1 ;
                 imgs.style.transition = "none";
                 imgs.style.transform=`translateX(${(actual-1)*-600}px)`;
-
-
             }
+
+            timer = setInterval(function(){
+            document.getElementById("siguiente").click();
+        }, 2000)
         });
 
         document.getElementById("siguiente").addEventListener("click", function(){
+            clearInterval(timer);
             imgs.style.transition = "all 1s"
             if (actual < totalImg){
                 actual ++;
@@ -108,6 +112,7 @@
             }
         });
         document.getElementById("anterior").addEventListener("click", function(){
+            clearInterval(timer);
             imgs.style.transition = "all 1s"
             if (actual > 1){
                 actual --;

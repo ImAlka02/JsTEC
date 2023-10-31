@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="BowArrow.css" rel="stylesheet"/>
+    <link href="BowArrowFotos/Kenny.png" rel="icon"/>
+    <title>Juego</title>
+</head>
+<body>
+    <div class="pistola"></div>
+    <script>
+
+        function crearKenny(){
+            let kenny = document.createElement("div");
+            kenny.classList.add("kenny");
+            kenny.style.top = "-55px";
+            kenny.style.left = Math.floor(Math.random() * (window.innerWidth - 240)) + 200 + "px";
+            kenny.dataset.velocidad = Math.floor(Math.random() * (5-1)) + 1;
+            document.body.append(kenny);
+
+            moverKenny(kenny);
+        }
+
+        function moverKenny(kenny){
+            let pos= parseInt(kenny.style.top);
+            pos += parseInt(kenny.dataset.velocidad);
+            
+            if(pos < window.innerHeight - 50){
+                kenny.style.top = pos + "px";
+                requestAnimationFrame(function(){moverKenny(kenny)});
+            }
+            else {
+                
+            }
+
+        }
+        let intervalKenny = setInterval(crearKenny, 1000)
+
+        
+        crearKenny();
+        moverKenny();
+    </script>
+</body>
+</html>

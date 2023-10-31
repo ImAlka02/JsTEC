@@ -1,0 +1,21 @@
+body {
+
+}
+
+.kenny {
+    width: 40px;
+    height: 50px;
+    background-image: url(BowArrowFotos/Kenny.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.pistola {
+    width: 100px;
+    height: 70px;
+    background-image: url(BowArrowFotos/Pistola.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
