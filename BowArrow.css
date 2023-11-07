@@ -1,5 +1,5 @@
 body {
-
+    overflow: hidden;
 }
 
 .kenny {
@@ -14,8 +14,25 @@ body {
 .pistola {
     width: 100px;
     height: 70px;
+    background-color: white;
     background-image: url(BowArrowFotos/Pistola.png);
     background-size: contain;
     background-repeat: no-repeat;
+    top:35px;
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: 1;
+}
 
+.manzana {
+    background-color: red;
+    width: 40px;
+    height: 35px;
+    background-image: url(BowArrowFotos/Manzana.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 0;
+    transform: translateY(-90%);
+    
 }

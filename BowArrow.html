@@ -9,7 +9,42 @@
 </head>
 <body>
     <div class="pistola"></div>
+    <div class="manzana"></div>
     <script>
+        const pistola = document.querySelector(".pistola");
+        let manzana = document.querySelector(".manzana");
+        window.addEventListener("mousemove", function(e){
+            if(e.clientY > pistola.clientHeight/2 && e.clientY < window.innerHeight - pistola.clientHeight/2 ){
+                pistola.style.top = e.clientY + "px";
+                if(manzana){
+                    manzana.style.top = e.clientY+ "px";
+                }
+            }
+        });
+
+        function dispararManzana(manzana){
+            let pos = 0;
+            if(manzana.style.left){
+                pos = parseInt(manzana.style.left)
+            }
+            pos+=5;
+            
+            if(pos < window.innerWidth){
+                manzana.style.left = pos + "px";
+                requestAnimationFrame(function(){dispararManzana(manzana)});
+            }
+            else {
+                manzana.remove();
+            }
+
+        }
+
+        window.addEventListener("click", function(e){
+            if(manzana){
+                dispararManzana(manzana);
+                manzana = null;
+            }
+        });
 
         function crearKenny(){
             let kenny = document.createElement("div");
