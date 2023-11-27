@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 2 </title>
+</head>
+<body>
+    <h1>Metodos JSON</h1>
+
+    <div>
+        <h2>Cantidad de vehiculos</h2>
+        <p id="displayMoto">Motocicletas <span>0</span></p>
+        <p id="displayAuto">Automoviles <span>0</span></p>
+        <p id="displayCamion">Camiones <span>0</span></p>
+
+        <form>
+            <input id="btnMoto" type="button" value="Motocicletas"/>
+            <input id="btnAuto" type="button" value="Automoviles"/>
+            <input id="btnCamion" type="button" value="Camiones"/>
+        </form>
+    
+        <script>
+            var contador = {
+                totalMotocicletas: 0,
+                totalAutomoviles:0,
+                totalCamiones:0,
+                displayMoto:document.querySelector("#displayMoto span"),
+                displayAuto:document.querySelector("#displayAuto span"),
+                displayCamion:document.querySelector("#displayCamion span"),
+                contarMoto: function(){
+                    this.totalMotocicletas++;
+                    this.displayMoto.textContent = this.totalMotocicletas;
+                },
+                contarAuto: function(){
+                    this.totalAutomoviles++;
+                    this.displayAuto.textContent = this.totalAutomoviles;
+
+                },
+                contarCamion: function(){
+                    this.totalCamiones++;
+                    this.displayCamion.textContent = this.totalCamiones;
+
+                }
+            };
+
+            document.getElementById("btnMoto").addEventListener("click", () => contador.contarMoto());
+            document.getElementById("btnAuto").addEventListener("click", () =>contador.contarAuto());
+            document.getElementById("btnCamion").addEventListener("click",() => contador.contarCamion());
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 1 Unidad 2 JSON</title>
+</head>
+<body>
+    <h1>Leccion 1 Unidad 2 JSON</h1>
+
+    <script>
+        let alumno = {
+            nombre:"Juan"
+        };
+
+        let producto = {
+            categoria:"Abarrotes",
+            precio:25,
+            nombre:"Aceite"
+        };
+
+        let arreglo = [];
+        
+        // arreglo.push(alumno);
+        // arreglo.push(producto);
+        // console.log(arreglo);
+
+        let suma = {
+            numero1:5,
+            numero2:3,
+            get resultado() {
+                return this.numero1 + this.numero2
+            },
+
+            set ejemplo(dato){
+                this.numero1 = dato;
+                this.numero2 =dato;
+            },
+
+            borrar:function(){
+                this.numero1 = 0;
+                this.numero2 = 0;
+            }
+        };
+        suma.ejemplo=20;
+        console.log(suma.resultado);
+
+
+        class Alumno {
+            constructor(nombre,edad){
+                this.nombre = nombre,
+                this.edad = edad
+            }
+        }
+
+        let juan = new Alumno("juan", 15);
+        console.log(juan);
+    </script>
+</body>
+</html>

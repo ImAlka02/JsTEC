@@ -13,6 +13,7 @@
     <script>
         const pistola = document.querySelector(".pistola");
         let manzana = document.querySelector(".manzana");
+        let arreglo = [];
         window.addEventListener("mousemove", function(e){
             if(e.clientY > pistola.clientHeight/2 && e.clientY < window.innerHeight - pistola.clientHeight/2 ){
                 pistola.style.top = e.clientY + "px";
@@ -31,6 +32,15 @@
             
             if(pos < window.innerWidth){
                 manzana.style.left = pos + "px";
+
+                //Verificar colisiones
+                arreglo.forEach(x => {
+                    if(checkColision(x,manzana)){
+                        x.remove();
+                        arreglo = document.querySelectorAll(".kenny")
+                    }
+                });
+
                 requestAnimationFrame(function(){dispararManzana(manzana)});
             }
             else {
@@ -43,6 +53,14 @@
             if(manzana){
                 dispararManzana(manzana);
                 manzana = null;
+
+                setTimeout(function(){
+                    manzana = document.createElement("div");
+                    manzana.classList.add("manzana");
+                    manzana.style.top = pistola.style.top;
+                    document.body.append(manzana);
+
+                },100)
             }
         });
 
@@ -54,6 +72,7 @@
             kenny.dataset.velocidad = Math.floor(Math.random() * (5-1)) + 1;
             document.body.append(kenny);
 
+            arreglo = document.querySelectorAll(".kenny");
             moverKenny(kenny);
         }
 
@@ -66,9 +85,18 @@
                 requestAnimationFrame(function(){moverKenny(kenny)});
             }
             else {
-                
+                kenny.remove();
+                arreglo = document.querySelectorAll(".kenny");
+
             }
 
+        }
+        
+        function checkColision(kenny, manzana){
+            let cajaKenny = kenny.getBoundingClientRect();
+            let cajaManzana = manzana.getBoundingClientRect();
+
+            return cajaKenny.left<cajaManzana.right && cajaKenny.right > cajaManzana && cajaKenny.top < cajaManzana.bottom && cajaKenny.bottom > cajaManzana.top
         }
         let intervalKenny = setInterval(crearKenny, 1000)
 
