@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td{
+            border: 1px solid black;
+        }
+        table th{
+            background-color: lightblue;
+        }
+        table tfoot td {
+            text-align: center;
+        }
+        table tfoot td a{
+            display: inline-block;
+            margin-right :10px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Leccion 5. Enlace de datos 3</h1>
+    <input type="search" id = "filtro"/>
+    <table id="tabla1">
+
+    </table>
+
+    <script src="Enlace.js">
+    </script>
+
+    <script src="pokemon.js"></script>
+    <script> 
+        const tabla1 = document.getElementById("tabla1");
+        tabla1.dataBind(pokemon);
+        Array.from(tabla1.querySelectorAll("td:last-of-type")).forEach
+        (
+            td => {
+                td.parentElement.hidden = true;
+                let img = document.createElement("IMG");
+                img.src= td.textContent;
+                img.style.height = "50px"
+                td.textContent = null;
+                td.append(img);
+            }
+        );
+        tabla1.paginate(10);
+    </script>
+</body>
+</html>
