@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/208814b38b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+
+        nav{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50px;
+            justify-content: center;
+            background: black;
+        }
+
+        main{
+            text-align: center;
+        }
+
+        section {
+            align-content: center;
+        }
+
+        img {
+            height: 350px;
+        }
+
+        .containerDetails {
+            
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        h1 {
+            margin: 10px 0;
+        }
+
+        .containerDetails h3 {
+            margin: 0 10px 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="prueba.html">
+            <i class="fa-solid fa-guitar fa-2xl" style="color: #fff838;"></i>
+        </a>
+    </nav>
+    <main>
+        <section>
+            <h1 class="nombre"></h1>
+            <div class="containerDetails">
+                <h3 class="tipo">Tipo: </h3>
+                <h3 class="material">Material: </h3>
+                <h3 class="tono">Tono: </h3>
+            </div>
+            <img class="img">
+        </section>
+        <input id="regresar" type="button" value="Regresar" />
+    </main>
+    <script src="jsPrueba.js">
+        
+    </script>
+</body>
+</html>

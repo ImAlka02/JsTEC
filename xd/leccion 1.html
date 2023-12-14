@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leccion 1</title>
+</head>
+<body>
+    <h1>Leccion 1. Recuperar Datos</h1>
+
+    <h2>Lista de pokemon</h2>
+    <ul id="listapokemon"></ul>
+    <script>
+        const lista =document.getElementById("listapokemon");
+        async function descargarDatos(){
+            let response=await fetch("https://general.itesrc.net/api/pokemon");
+            if(response.ok){
+                let pokemon =await response.json();
+                for(let p of pokemon.slice(0,30)){
+                    let li=document.createElement("li");
+                    let a=document.createElement("a");
+                    let img=document.createElement("img");
+                    img.src=p.icono;
+                    img.height=30
+                    a.textContent=p.numero +" "+p.nombre;
+                    a.href="javascript:"
+                    a.onclick= funtion=>{verDetalles(p.numero)};
+                    li.append(img,a)
+                    lista.append(li);
+                }
+            }
+        }
+        function verDetalles(pokemon){
+            sessionStorage.numero=pokemon;
+            location.href="leccion_1_info.html"
+        }
+        descargarDatos();
+    </script>
+</body>
+</html>

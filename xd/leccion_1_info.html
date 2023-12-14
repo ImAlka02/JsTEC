@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 ><span class="numero"></span>.-<span class="nombre"></span></h1>
+    <dl>
+        <dt>Categoria</dt>
+        <dd class="categoria"></dd>
+        <dt>Tipos</dt>
+        <dd><span class="tipo1"></span>|<span class="tipo2"></span></dd>
+        <dt>Altura</dt>
+        <dd class="altura"></dd>
+        <dt>Peso:</dt>
+        <dd class="peso"></dd>
+        <dt>Descripcion</dt>
+        <dd class="descripcion"></dd>
+    </dl>
+    <input type="button" value="Regresar"/>
+    <script>
+        async function descargarPokemon(num){
+            let response= await fetch("https://general.itesrc.net/api/pokemon/"+num);
+            if(response.ok){
+                let pokemon=await response.json();
+                return pokemon;
+            }
+            else{
+                console.log("No se pudo descargar el pokemon");
+            }
+        };
+        async function mostrarDatos(){
+
+            if(sessionStorage.numero){
+                let pkmon=await descargarPokemon(sessionStorage.numero);
+                for (let propiedad in pkmon) {
+                    let obj=document.querySelector("."+propiedad);
+                    if(obj){
+                        obj.textContent=pkmon[propiedad];
+                    }
+                }
+            }
+            else{
+                location.href="Leccion 1.html";
+            }
+        }
+        mostrarDatos();
+    </script>
+</body>
+</html>

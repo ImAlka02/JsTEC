@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/208814b38b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+
+        nav{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50px;
+            justify-content: center;
+            background: black;
+        }
+
+        main{
+            text-align: center;
+        }
+        h1{
+            font-size: 2.5rem;
+        }
+
+        main h1, main h4 {
+            margin: 10px 0 0 0;
+            font-weight: 500;
+        }
+
+
+        .containerItems {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+        }
+
+        .containerItems p {
+            margin: 0 0 20px;
+        }
+
+        .carrusel {
+            width: 800px;
+            margin: 10px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carrusel div{
+            display: flex;
+            transition: all 3s;
+        }
+        .imagenInstrumento {
+            width: 800px;
+            
+            height: 400px;
+            flex: none;
+            
+        }
+        .imagenInstrumento img {
+            width: 800px;
+            object-fit: fill;
+            height: auto;
+            flex: none;
+        }
+
+        .botones{
+            position: absolute;
+            top:50%;
+            left:10px;
+            width: 50px;
+            height: 50px;
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5em;
+            transform: translateY(-50%);
+            opacity: .3;
+            transition: all .1s ease-in;
+        }
+
+        .botones:hover {
+            opacity: 1;
+        }
+
+        .botones:last-of-type {
+            right: 1dvh;
+            left: unset;
+
+        }
+
+        .sabiasQueTitulo {
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .sabiasQue {
+            font-size: 1.3rem;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="prueba.html">
+            <i class="fa-solid fa-guitar fa-2xl" style="color: #fff838;"></i>
+        </a>
+    </nav>
+    <main>
+        <div class="containerItems">
+            <h1>Bienvenidos amantes de los instrumentos!</h1>
+            <h4>Clickea el instrumento de tu agrado para ver sus detalles!</h4>
+            <div class="carrusel">
+                <div>
+                    
+                </div>
+        
+                <a class="botones" href="javascript:" id="anterior">&lt;</a>
+                <a class="botones" href="javascript:" id="siguiente">&gt;</a>
+            </div>
+            <p class="sabiasQueTitulo">Sabias que:</p>
+            <p class="sabiasQue"></p>
+        </div>
+       
+    </main>
+    
+      <script src="jsPrueba.js"></script>
+</body>
+</html>
