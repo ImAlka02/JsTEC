@@ -243,7 +243,7 @@ function cargarDatoCurioso(){
 
 function verDetalles(instrumento){
     sessionStorage.id = instrumento;
-    location.href = "prueba1.html"
+    location.href = "Instrumento.html"
 }
 
 
@@ -272,7 +272,7 @@ function cargarInstrumento(){
         }
     }
   } else {
-    location.hfre = "prueba.html"
+    location.hfre = "Instrumentos.html"
   }
 }
 
@@ -330,6 +330,6 @@ if(divContainer){
     });
 }
 function regresar(){
-  location.href="prueba.html";
+  location.href="Instrumentos.html";
 }
 
