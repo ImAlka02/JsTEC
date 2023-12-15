@@ -33,17 +33,35 @@ let dataBindMethod = function(datos){
             }
 };
 
+var todosTr;
+var trVisibles;
 function mostrarTr(event){
     let a = event.target;
     let inicio = parseInt(a.dataset.inicio);
     let final = parseInt(a.dataset.fin);
 
-    let rows = Array.from(a.closest("table").querySelectorAll("tbody tr"));
-
-    for (let i = inicio; i <= final; i++) {
-        rows[i].hidden = false;
-        
+    if(!todosTr){        
+        todosTr = Array.from(a.closest("table").querySelectorAll("tbody tr"));
     }
+
+    trVisibles = todosTr.slice(inicio,final +1);
+
+    for(let tr of trVisibles){
+        tr.hidden = false;
+    }
+    // for (let i = inicio; i <= final; i++) {
+    //     rows[i].hidden = false;
+    // }
+
+    // for (let i = 0; i <= rows.length; i++) {
+    //     if(i<inicio ||i>final){
+    //         rows[i].hidden = true;
+    //     }
+    //     else {
+    //         rows[i].hidden = false;
+    //     }
+        
+    // }
 }
 
 let paginaMethod = function(tamanoPagina){

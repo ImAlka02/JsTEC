@@ -220,13 +220,17 @@ function cargarDatos() {
   for(let i of instrumentos){
     let  imagenInstrumento= document.createElement("img");
     let a = document.createElement("a");
+    let nomb = document.createElement("label");
+    nomb.textContent = i.nombre;
     a.href = "javascript:";
     a.onclick = function () {
       verDetalles(i.id);
     };
     a.className ="imagenInstrumento";
     imagenInstrumento.src = i.img + ".jpg";
+    a.append(nomb);
     a.append(imagenInstrumento);
+    
     divContainer.append(a);
   }
 }
@@ -325,5 +329,7 @@ if(divContainer){
         }
     });
 }
-
+function regresar(){
+  location.href="prueba.html";
+}
 

@@ -18,6 +18,15 @@
             font-family: 'Hedvig Letters Sans', sans-serif;
         }
 
+        body{
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,1) 19%, rgba(255,220,177,1) 100%);
+        }
+        
+        h1, h3 {
+            color: white;
+        }
+
         nav{
             display: flex;
             flex-direction: row;
@@ -48,31 +57,50 @@
 
         h1 {
             margin: 10px 0;
+            font-size: 2rem;
         }
 
         .containerDetails h3 {
             margin: 0 10px 10px;
-            font-size: 20px;
+            filter: drop-shadow(-2px 0px 0px black);
+            font-size: 1.5rem;
+        }
+
+        .regresarBtn{
+            margin: 10px 0;
+            height: 50px;
+            background-color: white;
+            font-family: 'Hedvig Letters Sans', sans-serif;
+            width: 200px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+            border: 1px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
         }
     </style>
 </head>
 <body>
     <nav>
         <a href="prueba.html">
-            <i class="fa-solid fa-guitar fa-2xl" style="color: #fff838;"></i>
+            <i class="fa-solid fa-guitar fa-2xl" style="color:#FFDCB1;"></i>
         </a>
     </nav>
     <main>
         <section>
             <h1 class="nombre"></h1>
+            <img class="img">
+            
             <div class="containerDetails">
                 <h3 class="tipo">Tipo: </h3>
                 <h3 class="material">Material: </h3>
                 <h3 class="tono">Tono: </h3>
             </div>
-            <img class="img">
+            
         </section>
-        <input id="regresar" type="button" value="Regresar" />
+        <input id="regresar" class="regresarBtn" type="button" value="Regresar" onclick="regresar()" />
     </main>
     <script src="jsPrueba.js">
         

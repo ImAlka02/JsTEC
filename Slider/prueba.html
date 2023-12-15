@@ -7,14 +7,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
+            
+            font-family: 'Hedvig Letters Sans', sans-serif;
+        }
+
+        html{
+            height: 100%;
+        }
+
+        body{
             width: 100%;
             height: 100%;
-            font-family: 'Hedvig Letters Sans', sans-serif;
+            background: linear-gradient(180deg, rgba(0,0,0,1) 19%, rgba(255,220,177,1) 100%);
         }
 
         nav{
@@ -31,10 +42,13 @@
         }
         h1{
             font-size: 2.5rem;
+            
+            font-family: 'Anton', sans-serif;
         }
 
         main h1, main h4 {
             margin: 10px 0 0 0;
+            color: white;
             font-weight: 500;
         }
 
@@ -42,6 +56,7 @@
         .containerItems {
             display: flex;
             flex-direction: column;
+            align-items: center;
             margin: 0 20px;
         }
 
@@ -60,6 +75,23 @@
             display: flex;
             transition: all 3s;
         }
+
+        .carrusel div a {
+            text-decoration: none;
+            
+        }
+
+        .carrusel div a label {
+            position: absolute;
+            top: 80%;
+            width:100%;
+            font-weight: bolder;
+            font-size: 50px;
+            filter: drop-shadow(5px 0px 0px black);
+            color: white;
+            text-decoration: none;
+        }
+
         .imagenInstrumento {
             width: 800px;
             
@@ -103,22 +135,76 @@
         }
 
         .sabiasQueTitulo {
-            font-size: 2rem;
-            font-weight: 400;
+            font-size: 3rem;
+            color: black;
+            font-family: 'Anton', sans-serif;
+
         }
 
         .sabiasQue {
+            font-family: 'Outfit', sans-serif;
             font-size: 1.3rem;
         }
 
+        .datoCurioso {
+            padding: 10px;
+            border: 5px solid black;
+            width: 80%;
+            border-radius: 20px;
+        }
         
+        .iconThinking {
+            height: 50px;
+        }
+        .thought {
+        display:flex;
+        flex-direction: column;
+        background-color:#fff;
+        padding:20px;
+        border-radius:30px;
+        min-width:40px;
+        max-width:420px;
+        min-height:40px;
+        margin:20px;
+        position:relative;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        }
+        .thought:before,
+        .thought:after {
+            content:"";
+            background-color:#fff;
+            border-radius:50%;
+            display:block;
+            position:absolute;
+            z-index:-1;
+        }
+        .thought:before {
+          width:44px;
+          height:44px;
+          top:-12px;
+          left:28px;
+          box-shadow:-50px 30px 0 -12px #fff;
+        }
+        .thought:after {
+          bottom:-10px;
+          right:26px;
+          width:30px;
+          height:30px;
+          box-shadow:40px -34px 0 0 #fff,
+                     -28px -6px 0 -2px #fff,
+                     -24px 17px 0 -6px #fff,
+                     -5px 25px 0 -10px #fff;
         
+        }
+
     </style>
 </head>
 <body>
     <nav>
         <a href="prueba.html">
-            <i class="fa-solid fa-guitar fa-2xl" style="color: #fff838;"></i>
+            <i class="fa-solid fa-guitar fa-2xl" style="color: #FFDCB1;"></i>
         </a>
     </nav>
     <main>
@@ -133,8 +219,12 @@
                 <a class="botones" href="javascript:" id="anterior">&lt;</a>
                 <a class="botones" href="javascript:" id="siguiente">&gt;</a>
             </div>
-            <p class="sabiasQueTitulo">Sabias que:</p>
-            <p class="sabiasQue"></p>
+     
+                
+                <div class="thought"><p class="sabiasQueTitulo">SABIAS QUE <img class="iconThinking" src="icon/thinking_907216.png"></p>
+                    <p class="sabiasQue"></p></div>
+            
+            
         </div>
        
     </main>
